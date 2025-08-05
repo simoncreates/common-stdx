@@ -1,8 +1,7 @@
-#[derive(PartialEq, Eq, Clone, Copy, Debug)]
-pub struct Point {
-    pub x: u16,
-    pub y: u16,
-}
+mod point;
+
+pub use point::Point;
+
 
 #[derive(Debug)]
 pub struct Rect {

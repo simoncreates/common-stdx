@@ -10,3 +10,10 @@ readme = "README.md"
 
 [lib]
 path = "src/lib.rs"
+
+[dependencies]
+num-traits = "0.2"
+
+[features]
+default = []
+float = []
