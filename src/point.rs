@@ -1,5 +1,6 @@
+
 use std::ops::{Add, Sub, Mul, Neg};
-use num_traits::{Zero, One};
+use num_traits::Zero;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Point<T> {
@@ -15,7 +16,7 @@ impl<T> Point<T> {
 
 impl<T> Point<T>
 where
-    T: Copy + Zero,
+    T: Copy + Zero + PartialEq,
 {
     pub fn zero() -> Self {
         Point {
@@ -34,7 +35,6 @@ where
     T: Add<Output = T> + Copy,
 {
     type Output = Point<T>;
-
     fn add(self, rhs: Point<T>) -> Self::Output {
         Point {
             x: self.x + rhs.x,
@@ -48,7 +48,6 @@ where
     T: Sub<Output = T> + Copy,
 {
     type Output = Point<T>;
-
     fn sub(self, rhs: Point<T>) -> Self::Output {
         Point {
             x: self.x - rhs.x,
@@ -62,7 +61,6 @@ where
     T: Mul<Output = T> + Copy,
 {
     type Output = Point<T>;
-
     fn mul(self, rhs: T) -> Self::Output {
         Point {
             x: self.x * rhs,
@@ -76,7 +74,6 @@ where
     T: Neg<Output = T> + Copy,
 {
     type Output = Point<T>;
-
     fn neg(self) -> Self::Output {
         Point {
             x: -self.x,
@@ -97,19 +94,18 @@ where
 #[cfg(feature = "float")]
 impl<T> Point<T>
 where
-    T: Copy + Mul<Output = T> + Add<Output = T> + Into<f64>,
+    T: Copy + Sub<Output = T> + Into<f64>,
 {
-    /// Returns the Euclidean distance between two points (as f64).
     pub fn distance(self, other: Point<T>) -> f64 {
         let dx: f64 = (self.x - other.x).into();
         let dy: f64 = (self.y - other.y).into();
         (dx * dx + dy * dy).sqrt()
     }
 
-    /// Returns the magnitude (length) of the point vector (as f64).
     pub fn magnitude(self) -> f64 {
         let x: f64 = self.x.into();
         let y: f64 = self.y.into();
         (x * x + y * y).sqrt()
     }
 }
+
