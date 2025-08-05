@@ -1,0 +1,1 @@
+A collection of structs and macros, which i will be using in a lot of my personal projects.
