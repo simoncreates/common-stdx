@@ -61,11 +61,13 @@ where
     }
 }
 
+
 impl<T> Rect<T>
 where
-    T: Copy + Ord + Add<Output = T> + Sub<Output = T>,
+    T: Copy + Ord + Add<Output = T> + Sub<Output = T> + std::ops::Mul<Output = T>,
 {
     pub fn area(&self) -> T {
         self.width() * self.height()
     }
 }
+
