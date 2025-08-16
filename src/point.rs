@@ -1,8 +1,7 @@
-
-use std::ops::{Add, Sub, Mul, Neg};
 use num_traits::Zero;
+use std::ops::{Add, Mul, Neg, Sub};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Point<T> {
     pub x: T,
     pub y: T,
@@ -108,4 +107,3 @@ where
         (x * x + y * y).sqrt()
     }
 }
-
