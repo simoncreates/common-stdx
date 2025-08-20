@@ -13,6 +13,12 @@ impl<T> Point<T> {
     }
 }
 
+impl<T> From<(T, T)> for Point<T> {
+    fn from((x, y): (T, T)) -> Self {
+        Point { x, y }
+    }
+}
+
 impl<T> Point<T>
 where
     T: Copy + Zero + PartialEq,

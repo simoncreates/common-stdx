@@ -1,6 +1,6 @@
 [package]
 name = "common-stdx"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2024"
 description = "extension for the std lib, for things i commonly reuse"
 repository = "https://github.com/simoncreates/common-stdx.git"
