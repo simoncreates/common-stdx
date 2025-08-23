@@ -20,7 +20,6 @@ impl<T> Rect<T> {
             p2: Point { x: x2, y: y2 },
         }
     }
-
 }
 
 impl<T> Rect<T>
@@ -41,8 +40,7 @@ where
 
     pub fn contains(&self, point: Point<T>) -> bool {
         let r = self.normalized();
-        point.x >= r.p1.x && point.x <= r.p2.x &&
-        point.y >= r.p1.y && point.y <= r.p2.y
+        point.x >= r.p1.x && point.x <= r.p2.x && point.y >= r.p1.y && point.y <= r.p2.y
     }
 }
 
@@ -61,7 +59,6 @@ where
     }
 }
 
-
 impl<T> Rect<T>
 where
     T: Copy + Ord + Add<Output = T> + Sub<Output = T> + std::ops::Mul<Output = T>,
@@ -71,3 +68,20 @@ where
     }
 }
 
+impl<T> Rect<T> {
+    pub fn map<U, F>(self, mut f: F) -> Rect<U>
+    where
+        F: FnMut(T) -> U,
+    {
+        Rect {
+            p1: Point {
+                x: f(self.p1.x),
+                y: f(self.p1.y),
+            },
+            p2: Point {
+                x: f(self.p2.x),
+                y: f(self.p2.y),
+            },
+        }
+    }
+}
