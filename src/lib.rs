@@ -1,6 +1,9 @@
 mod point;
 pub use point::Point;
 
+mod dualhash;
+pub use dualhash::DualHashMap;
+
 use std::ops::{Add, Sub};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
