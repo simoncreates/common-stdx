@@ -15,7 +15,7 @@ where
     K1: std::hash::Hash + Eq + Send + Clone,
     K2: std::hash::Hash + Eq + Send + Clone,
 {
-    fn new() -> Self {
+    pub fn new() -> Self {
         DualHashMap {
             data_map: HashMap::new(),
             sec_key_map: HashMap::new(),
