@@ -103,6 +103,15 @@ where
         self.sec_key_map.get(k2)
     }
 
+    pub fn get_k2_by_k1(&self, k1: &K1) -> Option<&K2> {
+        for (k2, k1_set) in &self.sec_key_map {
+            if k1_set.contains(k1) {
+                return Some(k2);
+            }
+        }
+        None
+    }
+
     pub fn len(&self) -> usize {
         self.data_map.len()
     }
