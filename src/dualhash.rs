@@ -5,7 +5,6 @@ pub struct DualHashMap<K1, K2, V>
 where
     K1: std::hash::Hash + Eq + Send + Clone,
     K2: std::hash::Hash + Eq + Send + Clone,
-    V: std::hash::Hash + Eq + Send + Clone,
 {
     data_map: HashMap<K1, V>,
     sec_key_map: HashMap<K2, HashSet<K1>>,
@@ -15,7 +14,6 @@ impl<K1, K2, V> DualHashMap<K1, K2, V>
 where
     K1: std::hash::Hash + Eq + Send + Clone,
     K2: std::hash::Hash + Eq + Send + Clone,
-    V: std::hash::Hash + Eq + Send + Clone,
 {
     pub fn new() -> Self {
         DualHashMap {
@@ -118,7 +116,6 @@ impl<K1, K2, V> Default for DualHashMap<K1, K2, V>
 where
     K1: std::hash::Hash + Eq + Send + Clone,
     K2: std::hash::Hash + Eq + Send + Clone,
-    V: std::hash::Hash + Eq + Send + Clone,
 {
     fn default() -> Self {
         Self::new()
