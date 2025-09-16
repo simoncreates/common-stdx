@@ -1,6 +1,7 @@
 use std::collections::VecDeque;
 use std::ops::{Deref, DerefMut};
 
+#[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct DropStack<T> {
     stack: VecDeque<T>,
     max_size: usize,
