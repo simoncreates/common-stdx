@@ -4,6 +4,9 @@ pub use point::Point;
 mod dualhash;
 pub use dualhash::DualHashMap;
 
+pub mod drop_stack;
+pub use drop_stack::DropStack;
+
 use std::ops::{Add, Sub};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
