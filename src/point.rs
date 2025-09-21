@@ -1,7 +1,8 @@
 use num_traits::Zero;
+use serde::{Deserialize, Serialize};
 use std::ops::{Add, Mul, Neg, Sub};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct Point<T> {
     pub x: T,
     pub y: T,

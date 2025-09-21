@@ -1,6 +1,6 @@
 [package]
 name = "common-stdx"
-version = "0.1.13"
+version = "0.1.14"
 edition = "2024"
 description = "extension for the std lib, for things i commonly reuse"
 repository = "https://github.com/simoncreates/common-stdx.git"
@@ -13,6 +13,8 @@ path = "src/lib.rs"
 
 [dependencies]
 num-traits = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+
 
 [features]
 default = []
